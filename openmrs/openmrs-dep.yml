@@ -1,52 +1,52 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: openmrs
-  labels:
-    app: openmrs
----
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: openmrs
+#   labels:
+#     app: openmrs
+# ---
 
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: openmrs-deploy
-  namespace: openmrs
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: openmrs
-  minReadySeconds: 30
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
-  template:
-    metadata:
-      labels:
-        app: openmrs
-    spec:
-      containers:
-      - name: openmrs
-        image: veerendradevops/openmrs:2.1.3
-        ports:
-        - containerPort: 8080
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: openmrs-deploy
+#   namespace: openmrs
+# spec:
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: openmrs
+#   minReadySeconds: 30
+#   strategy:
+#     type: RollingUpdate
+#     rollingUpdate:
+#       maxUnavailable: 1
+#       maxSurge: 1
+#   template:
+#     metadata:
+#       labels:
+#         app: openmrs
+#     spec:
+#       containers:
+#       - name: openmrs
+#         image: veerendradevops/openmrs:2.1.3
+#         ports:
+#         - containerPort: 8080
 
----
+# ---
 
-kind: Service
-apiVersion: v1
-metadata:
-  name: openmrs
-  namespace: openmrs
-spec:
-  selector:
-    app: openmrs
-  type: NodePort
-  ports:
-  - name: http
-    port: 8080
-    nodePort: 30001
-    protocol: TCP
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: openmrs
+#   namespace: openmrs
+# spec:
+#   selector:
+#     app: openmrs
+#   type: NodePort
+#   ports:
+#   - name: http
+#     port: 8080
+#     nodePort: 30001
+#     protocol: TCP
   
