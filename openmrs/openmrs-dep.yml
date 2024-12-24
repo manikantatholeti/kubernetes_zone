@@ -10,6 +10,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: openmrs-deploy
+  namespace: openmrs
 spec:
   replicas: 3
   selector:
@@ -38,6 +39,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: openmrs
+  namespace: openmrs
 spec:
   selector:
     app: openmrs
