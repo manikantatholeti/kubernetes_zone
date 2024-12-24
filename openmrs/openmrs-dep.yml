@@ -4,11 +4,9 @@
 #   name: openmrs
 #   labels:
 #     app: openmrs
-<<<<<<< HEAD
 # ---
 =======
----
->>>>>>> ddd0ec135b5a54b9d9dcaeeacc497be34ba556d0
+# ---
 
 # apiVersion: apps/v1
 # kind: Deployment
@@ -39,7 +37,6 @@
 
 # ---
 
-<<<<<<< HEAD
 # kind: Service
 # apiVersion: v1
 # metadata:
@@ -56,19 +53,18 @@
 #     protocol: TCP
   
 =======
-kind: Service
-apiVersion: v1
-metadata:
-  name: openmrs
-  namespace: openmrs
-spec:
-  selector:
-    app: openmrs
-  type: NodePort
-  ports:
-  - name: http
-    port: 8080
-    nodePort: 30001
-    protocol: TCP
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: openmrs
+#   namespace: openmrs
+# spec:
+#   selector:
+#     app: openmrs
+#   type: NodePort
+#   ports:
+#   - name: http
+#     port: 8080
+#     nodePort: 30001
+#     protocol: TCP
   
->>>>>>> ddd0ec135b5a54b9d9dcaeeacc497be34ba556d0
